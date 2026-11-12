@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <script>(function (w, i, g) { w[g] = w[g] || []; if (typeof w[g].push == 'function') w[g].push(i) })
+            (window, 'GTM-TLQSKTW', 'google_tags_first_party');</script>
+    <script>(function (w, d, s, l) {
+            w[l] = w[l] || []; (function () { w[l].push(arguments); })('set', 'developer_id.dYzg1YT', true);
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s); j.async = true; j.src = '/analytics/';
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Produtos - Sistema Distribuído</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Sistema de Gerenciamento de Produtos</h1>
+            <p>Demonstração de CRUD completo - Sistemas Distribuídos</p>
+        </header>
+
+        <!-- Formulário para cadastrar/editar produtos -->
+        <section class="form-section">
+            <h2 id="form-title">Cadastrar Novo Produto</h2>
+            <form id="produtoForm">
+                <input type="hidden" id="produtoId">
+                <div class="form-group">
+                    <label for="nome">Nome do Produto:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="preco">Preço (R$):</label>
+                    <input type="number" id="preco" name="preco" step="0.01" min="0" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" id="btnSalvar">Cadastrar Produto</button>
+                    <button type="button" id="btnCancelar" style="display: none;">Cancelar Edição</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Lista de produtos -->
+        <section class="list-section">
+            <h2>📋 Produtos Cadastrados</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar produto...">
+                <button onclick="buscarProdutos()">🔍 Buscar</button>
+            </div>
+            <div id="loading" class="loading" style="display: none;">
+                Carregando produtos...
+            </div>
+            <div id="produtosList" class="produtos-list">
+                <!-- Os produtos serão carregados aqui via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Modal para confirmação -->
+        <div id="confirmModal" class="modal">
+            <div class="modal-content">
+                <h3>Confirmação</h3>
+                <p id="confirmMessage">Tem certeza que deseja excluir este produto?</p>
+                <div class="modal-buttons">
+                    <button id="confirmYes" class="btn-danger">Sim</button>
+                    <button id="confirmNo">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module"
+        src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
+        integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw=="
+        data-cf-beacon='{"version":"2024.11.0","token":"85f979b02e20481d959ab994eb426b76","spa":2}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
